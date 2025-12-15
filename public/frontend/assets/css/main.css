@@ -1211,16 +1211,18 @@ section,
 
 .home-about .feature-item {
     padding: 20px;
-    border-radius: 8px;
+    border-radius: 12px;
     background-color: var(--surface-color);
     height: 100%;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 5px 15px
+        color-mix(in srgb, var(--default-color), transparent 85%);
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .home-about .feature-item:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 15px 30px
+        color-mix(in srgb, var(--default-color), transparent 75%);
 }
 
 .home-about .feature-item .icon {
@@ -1247,9 +1249,9 @@ section,
 }
 
 .home-about .cta-wrapper .btn {
-    padding: 10px 24px;
-    font-weight: 500;
-    border-radius: 6px;
+    padding: 0.8rem 2rem;
+    font-weight: 600;
+    border-radius: 50px;
     transition: all 0.3s;
 }
 
@@ -1265,13 +1267,15 @@ section,
 }
 
 .home-about .cta-wrapper .btn-outline {
-    border: 1px solid color-mix(in srgb, var(--default-color), transparent 70%);
-    color: var(--default-color);
+    background-color: transparent;
+    border: 2px solid var(--accent-color);
+    color: var(--accent-color);
 }
 
 .home-about .cta-wrapper .btn-outline:hover {
-    background-color: color-mix(in srgb, var(--default-color), transparent 90%);
-    border-color: color-mix(in srgb, var(--default-color), transparent 50%);
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    color: var(--contrast-color);
 }
 
 .home-about .certifications-row {

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 class PublicController extends Controller
 {
+    // Controller Untuk Halaman Utama
     public function home()
     {
         return view('public/home');
@@ -36,33 +37,36 @@ class PublicController extends Controller
         return view('public/types');
     }
 
-    public function paranoid()
-    {
-        return view('public/paranoid');
-    }
-
-    public function hebephrenic()
-    {
-        return view('public/hebephrenic');
-    }
-
-    public function residual()
-    {
-        return view('public/residual');
-    }
-
-    public function catatonic()
-    {
-        return view('public/catatonic');
-    }
-
-    public function undifferentiated()
-    {
-        return view('public/undifferentiated');
-    }
-
     public function guide()
     {
         return view('public/guide');
     }
+
+    //  Controller Untuk Detail Tipe
+
+    public function paranoid()
+    {
+        return view('public.types-detail.paranoid');
+    }
+
+    public function hebephrenic()
+    {
+        return view('public.types-detail.hebephrenic');
+    }
+
+    public function residual()
+    {
+        return view('public.types-detail.residual');
+    }
+
+    public function catatonic()
+    {
+        return view('public.types-detail.catatonic');
+    }
+
+    public function undifferentiated()
+    {
+        return view('public.types-detail.undifferentiated');
+    }
+
 }

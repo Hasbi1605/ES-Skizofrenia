@@ -28,11 +28,11 @@
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-        <div class="row gy-4">
+        <div class="row gy-5">
 
           <!-- First Column with 2 departments -->
-          <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="200">
-            <div class="department-card">
+          <div class="col-lg-4 d-flex flex-column" data-aos="zoom-in" data-aos-delay="200">
+            <div class="department-card h-100 mb-4">
               <div class="department-header">
                 <div class="department-icon">
                   <i class="bi bi-shuffle"></i>
@@ -52,15 +52,15 @@
               <div class="department-content">
                 <p>Ditandai dengan perilaku dan bicara yang kacau, serta respon emosional yang datar atau tidak sesuai situasi.</p>
                 <ul class="department-highlights">
-                  <li><i class="bi bi-check2"></i> Bicara tidak teratur</li>
-                  <li><i class="bi bi-check2"></i> Perilaku kekanak-kanakan</li>
-                  <li><i class="bi bi-check2"></i> Afek tidak serasi</li>
+                  <li><i class="bi bi-check2-circle"></i> Bicara tidak teratur</li>
+                  <li><i class="bi bi-check2-circle"></i> Perilaku kekanak-kanakan</li>
+                  <li><i class="bi bi-check2-circle"></i> Afek tidak serasi</li>
                 </ul>
                 <a href="{{ url('/hebephrenic') }}" class="department-link">Pelajari Lebih Lanjut</a>
               </div>
             </div>
 
-            <div class="department-card" data-aos="zoom-in" data-aos-delay="350">
+            <div class="department-card h-100" data-aos="zoom-in" data-aos-delay="350">
               <div class="department-header">
                 <div class="department-icon">
                   <i class="bi bi-person-standing"></i>
@@ -80,9 +80,9 @@
               <div class="department-content">
                 <p>Ekstrem dalam perilaku fisik, bisa berupa diam mematung (stupor) atau gerakan berlebih tanpa tujuan.</p>
                 <ul class="department-highlights">
-                  <li><i class="bi bi-check2"></i> Stupor (tidak bergerak)</li>
-                  <li><i class="bi bi-check2"></i> Mutisme (membisu)</li>
-                  <li><i class="bi bi-check2"></i> Echolalia (meniru ucapan)</li>
+                  <li><i class="bi bi-check2-circle"></i> Stupor (tidak bergerak)</li>
+                  <li><i class="bi bi-check2-circle"></i> Mutisme (membisu)</li>
+                  <li><i class="bi bi-check2-circle"></i> Echolalia (meniru ucapan)</li>
                 </ul>
                 <a href="{{ url('/catatonic') }}" class="department-link">Pelajari Lebih Lanjut</a>
               </div>
@@ -90,8 +90,8 @@
           </div><!-- End First Column -->
 
           <!-- Second Column - Featured Department -->
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="250">
-            <div class="featured-department">
+          <div class="col-lg-4 d-flex" data-aos="fade-up" data-aos-delay="250">
+            <div class="featured-department h-100">
               <div class="featured-header">
                 <div class="featured-badge">
                   <i class="bi bi-star-fill"></i>
@@ -135,8 +135,8 @@
           </div><!-- End Featured Department -->
 
           <!-- Third Column with 2 departments -->
-          <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="300">
-            <div class="department-card">
+          <div class="col-lg-4 d-flex flex-column" data-aos="zoom-in" data-aos-delay="300">
+            <div class="department-card h-100 mb-4">
               <div class="department-header">
                 <div class="department-icon">
                   <i class="bi bi-hourglass-split"></i>
@@ -156,15 +156,15 @@
               <div class="department-content">
                 <p>Gejala positif (halusinasi/delusi) sudah mereda, namun gejala negatif (penarikan diri, kurang motivasi) masih menetap.</p>
                 <ul class="department-highlights">
-                  <li><i class="bi bi-check2"></i> Pasif & apatis</li>
-                  <li><i class="bi bi-check2"></i> Penarikan sosial</li>
-                  <li><i class="bi bi-check2"></i> Perawatan diri kurang</li>
+                  <li><i class="bi bi-check2-circle"></i> Pasif & apatis</li>
+                  <li><i class="bi bi-check2-circle"></i> Penarikan sosial</li>
+                  <li><i class="bi bi-check2-circle"></i> Perawatan diri kurang</li>
                 </ul>
                 <a href="{{ url('/residual') }}" class="department-link">Pelajari Lebih Lanjut</a>
               </div>
             </div>
 
-            <div class="department-card" data-aos="zoom-in" data-aos-delay="400">
+            <div class="department-card h-100" data-aos="zoom-in" data-aos-delay="400">
               <div class="department-header">
                 <div class="department-icon">
                   <i class="bi bi-question-circle"></i>
@@ -184,9 +184,9 @@
               <div class="department-content">
                 <p>Menunjukkan gejala skizofrenia yang jelas namun tidak memenuhi kriteria spesifik untuk tipe paranoid, hebeferenik, atau katatonik.</p>
                 <ul class="department-highlights">
-                  <li><i class="bi bi-check2"></i> Gejala campuran</li>
-                  <li><i class="bi bi-check2"></i> Diagnosis awal</li>
-                  <li><i class="bi bi-check2"></i> Perubahan tipe</li>
+                  <li><i class="bi bi-check2-circle"></i> Gejala campuran</li>
+                  <li><i class="bi bi-check2-circle"></i> Diagnosis awal</li>
+                  <li><i class="bi bi-check2-circle"></i> Perubahan tipe</li>
                 </ul>
                 <a href="{{ url('/undifferentiated') }}" class="department-link">Pelajari Lebih Lanjut</a>
               </div>
@@ -200,4 +200,69 @@
     </section><!-- /Departments Section -->
 
   </main>
+
+<style>
+/* Types Page Enhancements */
+.departments .department-highlights li i {
+    color: var(--accent-color);
+    margin-right: 8px;
+    font-size: 1rem;
+}
+
+.departments .department-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 20px;
+    background: var(--accent-color);
+    color: white;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.departments .department-link:hover {
+    background: color-mix(in srgb, var(--accent-color) 85%, black);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 127, 127, 0.3);
+}
+
+.departments .featured-btn {
+    transition: all 0.3s ease;
+}
+
+.departments .featured-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 127, 127, 0.35);
+}
+
+.departments .department-card {
+    transition: all 0.3s ease;
+}
+
+.departments .department-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+}
+
+.departments .featured-department {
+    transition: all 0.3s ease;
+}
+
+.departments .featured-department:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+.departments .service-tag {
+    transition: all 0.2s ease;
+}
+
+.departments .service-tag:hover {
+    background: var(--accent-color);
+    color: white;
+}
+</style>
 @endsection

@@ -27,13 +27,13 @@
     <!-- Assessment Section -->
     <section id="assessment" class="services section">
 
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
+      <div class="container" data-aos="fade-up">
 
         <div class="row justify-content-center">
           <div class="col-lg-10 text-center">
 
             <div class="row gy-4 justify-content-center mb-5">
-              <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+              <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="50">
                 <div class="service-item h-100 p-4 border rounded-3 bg-white shadow-sm">
                   <div class="service-icon-wrapper mb-3 text-primary">
                     <i class="bi bi-clock fs-1"></i>
@@ -45,7 +45,7 @@
                 </div>
               </div>
 
-              <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+              <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
                 <div class="service-item h-100 p-4 border rounded-3 bg-white shadow-sm">
                   <div class="service-icon-wrapper mb-3 text-primary">
                     <i class="bi bi-shield-lock fs-1"></i>
@@ -57,7 +57,7 @@
                 </div>
               </div>
 
-              <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
+              <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="150">
                 <div class="service-item h-100 p-4 border rounded-3 bg-white shadow-sm">
                   <div class="service-icon-wrapper mb-3 text-primary">
                     <i class="bi bi-graph-up fs-1"></i>
@@ -69,7 +69,7 @@
                 </div>
               </div>
 
-              <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="500">
+              <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
                 <div class="service-item h-100 p-4 border rounded-3 bg-white shadow-sm">
                   <div class="service-icon-wrapper mb-3 text-primary">
                     <i class="bi bi-person-check fs-1"></i>
@@ -82,14 +82,14 @@
               </div>
             </div>
 
-            <div class="alert alert-warning d-flex align-items-center p-4 mb-5 mx-auto shadow-sm" role="alert" style="max-width: 800px; text-align: left; border-left: 5px solid #ffc107;" data-aos="fade-up" data-aos-delay="600">
+            <div class="alert alert-warning d-flex align-items-center p-4 mb-5 mx-auto shadow-sm" role="alert" style="max-width: 800px; text-align: left; border-left: 5px solid #ffc107;" data-aos="fade-up" data-aos-delay="250">
                <i class="bi bi-exclamation-triangle-fill flex-shrink-0 me-3 fs-3 text-warning"></i>
                <div>
                  <strong>Catatan Penting:</strong> Screening ini bukan pengganti diagnosa profesional. Jika hasil menunjukkan risiko tinggi, segera konsultasikan dengan ahli psikiatri.
                </div>
             </div>
 
-            <button type="button" class="btn btn-primary btn-lg px-5 py-3 rounded-pill shadow" data-bs-toggle="modal" data-bs-target="#screeningModal" data-aos="zoom-in" data-aos-delay="700" style="background-color: var(--accent-color); border-color: var(--accent-color);">
+            <button type="button" class="btn btn-primary btn-lg px-5 py-3 rounded-pill shadow" data-bs-toggle="modal" data-bs-target="#screeningModal" data-aos="zoom-in" data-aos-delay="300" style="background-color: var(--accent-color); border-color: var(--accent-color);">
               Mulai Screening Sekarang <i class="bi bi-arrow-right ms-2"></i>
             </button>
 
@@ -109,7 +109,7 @@
             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <form action="#" method="POST">
+            <form action="{{ route('screening.start') }}" method="POST">
               @csrf
               <div class="mb-3">
                 <label for="name" class="form-label">Nama Lengkap</label>

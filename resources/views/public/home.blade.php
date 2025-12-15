@@ -18,20 +18,18 @@
                   <div class="content-box">
                     <span class="badge-accent" data-aos="fade-up" data-aos-delay="150">Sistem Pakar Kesehatan Mental</span>
                     <h1 data-aos="fade-up" data-aos-delay="200">Deteksi Dini Gejala Skizofrenia</h1>
-                    <p data-aos="fade-up" data-aos-delay="250">Sistem pakar berbasis metode Certainty Factor dan Forward Chaining untuk membantu mendeteksi gejala skizofrenia sejak dini dengan tingkat kepastian yang terukur.</p>
+                    <p data-aos="fade-up" data-aos-delay="250">Sistem pakar berbasis metode Certainty Factor untuk membantu mendeteksi gejala skizofrenia sejak dini dengan tingkat kepastian yang terukur.</p>
 
                     <div class="cta-group" data-aos="fade-up" data-aos-delay="300">
                       <a href="{{ url('/screening') }}" class="btn btn-primary">Mulai Diagnosis Sekarang</a>
                       <a href="{{ url('/about') }}" class="btn btn-outline">Pelajari Lebih Lanjut</a>
                     </div>
 
-                    <div class="alert alert-warning mt-4" data-aos="fade-up" data-aos-delay="350" style="border-left: 4px solid #ff9800;">
-                      <div class="d-flex align-items-start">
-                        <i class="bi bi-exclamation-triangle-fill me-3" style="font-size: 1.5rem; color: #ff9800;"></i>
-                        <div>
-                          <strong>Disclaimer:</strong> Sistem pakar ini hanya untuk diagnosis awal dan skrining gejala skizofrenia. Hasil diagnosis tidak dapat menggantikan pemeriksaan dan penilaian dari tenaga medis profesional. Segera konsultasikan dengan dokter atau psikiater untuk diagnosis dan penanganan yang tepat.
-                        </div>
-                      </div>
+                    <div class="disclaimer-subtle mt-4" data-aos="fade-up" data-aos-delay="350">
+                      <p class="mb-0" style="font-size: 0.85rem; color: rgba(255,255,255,0.8);">
+                        <i class="bi bi-info-circle me-2"></i>
+                        <em>Sistem pakar ini untuk skrining awal dan tidak menggantikan diagnosis medis profesional.</em>
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -54,11 +52,11 @@
                   <div class="col-lg-4">
                     <div class="feature-item" data-aos="fade-up" data-aos-delay="500">
                       <div class="feature-icon">
-                        <i class="bi bi-diagram-3"></i>
+                        <i class="bi bi-lightning-charge"></i>
                       </div>
                       <div class="feature-text">
-                        <h3>Forward Chaining</h3>
-                        <p>Proses inferensi berurutan dari fakta-fakta gejala menuju kesimpulan diagnosis yang tepat.</p>
+                        <h3>Cepat & Mudah</h3>
+                        <p>Proses skrining yang efisien dengan hasil diagnosis dalam hitungan menit.</p>
                       </div>
                     </div>
                   </div>
@@ -66,11 +64,11 @@
                   <div class="col-lg-4">
                     <div class="feature-item" data-aos="fade-up" data-aos-delay="550">
                       <div class="feature-icon">
-                        <i class="bi bi-calculator"></i>
+                        <i class="bi bi-graph-up-arrow"></i>
                       </div>
                       <div class="feature-text">
-                        <h3>Certainty Factor</h3>
-                        <p>Perhitungan tingkat kepastian diagnosis berdasarkan kombinasi nilai kepercayaan setiap gejala.</p>
+                        <h3>Hasil Terukur</h3>
+                        <p>Tingkat kepastian diagnosis dihitung dengan metode ilmiah yang tervalidasi.</p>
                       </div>
                     </div>
                   </div>
@@ -100,25 +98,25 @@
             <div class="about-content">
               <h2>Sistem Pakar Diagnosis Skizofrenia</h2>
               <p class="lead">Skizofrenia adalah gangguan jiwa serius yang memerlukan deteksi dan penanganan dini untuk hasil treatment yang optimal. Sistem pakar kami dirancang untuk membantu mengenali tanda-tanda awal dengan metode ilmiah.</p>
-              <p>Menggunakan metode Forward Chaining untuk proses inferensi berurutan dan Certainty Factor untuk mengukur tingkat kepastian diagnosis, sistem ini memberikan hasil diagnosis yang terukur dan dapat dipertanggungjawabkan secara metodologis.</p>
+              <p>Menggunakan metode Certainty Factor untuk mengukur tingkat kepastian diagnosis berdasarkan gejala yang teridentifikasi, sistem ini memberikan hasil diagnosis yang terukur dan dapat dipertanggungjawabkan secara metodologis.</p>
 
               <div class="row g-4 mt-4">
                 <div class="col-md-6" data-aos="fade-up" data-aos-delay="400">
-                  <div class="feature-item">
-                    <div class="icon">
-                      <i class="bi bi-arrow-right-circle"></i>
-                    </div>
-                    <h4>Forward Chaining</h4>
-                    <p>Metode inferensi maju yang memproses gejala secara berurutan dari fakta menuju kesimpulan diagnosis.</p>
-                  </div>
-                </div>
-                <div class="col-md-6" data-aos="fade-up" data-aos-delay="500">
                   <div class="feature-item">
                     <div class="icon">
                       <i class="bi bi-percent"></i>
                     </div>
                     <h4>Certainty Factor</h4>
                     <p>Mengukur tingkat kepastian diagnosis dengan nilai CF antara 0-1 berdasarkan kombinasi gejala yang teridentifikasi.</p>
+                  </div>
+                </div>
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="500">
+                  <div class="feature-item">
+                    <div class="icon">
+                      <i class="bi bi-database-check"></i>
+                    </div>
+                    <h4>Basis Pengetahuan</h4>
+                    <p>Dibangun dari literatur medis dan konsultasi pakar untuk memastikan akurasi diagnosis yang optimal.</p>
                   </div>
                 </div>
               </div>
@@ -133,8 +131,8 @@
 
         <div class="row mt-5 pt-4 certifications-row" data-aos="fade-up" data-aos-delay="600">
           <div class="col-12 text-center mb-4">
-            <h4 class="certification-title">Fakta Penting Tentang Skizofrenia</h4>
-            <p class="text-muted">Memahami skizofrenia membantu deteksi dan penanganan lebih dini</p>
+            <h2 class="section-main-title">Fakta Penting Tentang Skizofrenia</h2>
+            <p class="section-subtitle">Memahami skizofrenia membantu deteksi dan penanganan lebih dini</p>
           </div>
           <div class="col-12">
             <div class="row gy-4">
@@ -291,5 +289,101 @@
         </div>
 
     </section>
+
+<style>
+/* Home Page Typography Improvements */
+
+/* Hero Section */
+#hero .content-box h1 {
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+}
+
+#hero .content-box p {
+    line-height: 1.7;
+    font-size: 1rem;
+}
+
+#hero .feature-text h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+}
+
+#hero .feature-text p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Sistem Pakar Section */
+#home-about h2 {
+    margin-bottom: 1rem;
+    line-height: 1.3;
+}
+
+#home-about .lead {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+#home-about p {
+    line-height: 1.65;
+    font-size: 0.98rem;
+}
+
+#home-about .feature-item h4 {
+    font-size: 1.05rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+}
+
+#home-about .feature-item p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Section Title - Remove Underline */
+.section-title h2,
+.section-main-title {
+    border-bottom: none !important;
+    text-decoration: none !important;
+    padding-bottom: 0.5rem !important;
+    margin-bottom: 0.5rem !important;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--heading-color);
+}
+
+.section-title h2:after {
+    content: none !important;
+    display: none !important;
+}
+
+.section-title p,
+.section-subtitle {
+    margin-top: 0.25rem;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* Gejala Cards Typography */
+.department-card h3 {
+    font-size: 1.15rem;
+    line-height: 1.4;
+    margin-bottom: 0.75rem;
+}
+
+.department-card p {
+    font-size: 0.95rem;
+    line-height: 1.65;
+}
+
+/* Stats Section */
+.stat-box p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+</style>
 
 @endsection

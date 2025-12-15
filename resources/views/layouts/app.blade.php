@@ -75,7 +75,7 @@
           <a href="{{ url('/') }}" class="logo d-flex align-items-center mb-3">
             <span class="sitename">SchizoCheck</span>
           </a>
-          <p class="mb-3">Sistem pakar berbasis Certainty Factor dan Forward Chaining untuk deteksi dini gejala skizofrenia.</p>
+          <p class="mb-3">Sistem pakar berbasis Certainty Factor untuk deteksi dini gejala skizofrenia.</p>
           <div class="social-links d-flex gap-2">
             <a href="#" class="btn btn-sm btn-outline-primary"><i class="bi bi-twitter"></i></a>
             <a href="#" class="btn btn-sm btn-outline-primary"><i class="bi bi-facebook"></i></a>

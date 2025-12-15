@@ -43,6 +43,9 @@
             <li class="nav-item" role="presentation">
               <button class="nav-link" id="services-disclaimer-tab" data-bs-toggle="tab" data-bs-target="#services-disclaimer" type="button" role="tab">Disclaimer Medis</button>
             </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="services-family-tab" data-bs-toggle="tab" data-bs-target="#services-family" type="button" role="tab">Panduan Keluarga</button>
+            </li>
           </ul>
 
           <div class="tab-content" data-aos="fade-up" data-aos-delay="300">
@@ -91,7 +94,7 @@
                     </div>
                     <div class="service-details">
                       <h5>3. Proses Analisis Sistem</h5>
-                      <p>Sistem akan memproses jawaban Anda menggunakan metode Forward Chaining untuk mencocokkan dengan basis aturan.</p>
+                      <p>Sistem akan memproses jawaban Anda menggunakan metode Certainty Factor untuk menganalisis tingkat kepastian diagnosis.</p>
                       <ul class="service-benefits">
                         <li><i class="fa fa-check-circle"></i>Proses instan</li>
                         <li><i class="fa fa-check-circle"></i>Analisis komprehensif</li>
@@ -114,10 +117,6 @@
                         <li><i class="fa fa-check-circle"></i>Persentase keyakinan</li>
                         <li><i class="fa fa-check-circle"></i>Saran tindakan lanjut</li>
                       </ul>
-                      <a href="{{ url('/appointment') }}" class="service-link">
-                        <span>Mulai Diagnosis Sekarang</span>
-                        <i class="fa fa-arrow-right"></i>
-                      </a>
                     </div>
                   </div>
                 </div>
@@ -128,23 +127,6 @@
             <div class="tab-pane fade" id="services-method" role="tabpanel">
               <div class="row g-4">
                 <div class="col-lg-6">
-                  <div class="service-item featured">
-                    <div class="service-icon-wrapper">
-                      <i class="fa fa-project-diagram"></i>
-                    </div>
-                    <div class="service-details">
-                      <h5>Forward Chaining</h5>
-                      <p>Metode pelacakan ke depan yang dimulai dari sekumpulan fakta (gejala) menuju kesimpulan (diagnosis).</p>
-                      <ul class="service-benefits">
-                        <li><i class="fa fa-check-circle"></i>Data Driven: Berbasis fakta yang ada</li>
-                        <li><i class="fa fa-check-circle"></i>Logis: Mengikuti aturan IF-THEN</li>
-                        <li><i class="fa fa-check-circle"></i>Efisien untuk diagnosis medis</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-lg-6">
                   <div class="service-item">
                     <div class="service-icon-wrapper">
                       <i class="fa fa-percentage"></i>
@@ -153,9 +135,26 @@
                       <h5>Certainty Factor (CF)</h5>
                       <p>Metode untuk mengakomodasi ketidakpastian pemikiran seorang pakar. Mengukur tingkat keyakinan terhadap suatu fakta.</p>
                       <ul class="service-benefits">
-                        <li><i class="fa fa-check-circle"></i>Nilai -1 sampai +1</li>
+                        <li><i class="fa fa-check-circle"></i>Nilai 0 sampai 1 (0-100%)</li>
                         <li><i class="fa fa-check-circle"></i>Menggabungkan keyakinan user & pakar</li>
                         <li><i class="fa fa-check-circle"></i>Hasil lebih nuansa daripada Ya/Tidak</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-lg-6">
+                  <div class="service-item">
+                    <div class="service-icon-wrapper">
+                      <i class="fa fa-database"></i>
+                    </div>
+                    <div class="service-details">
+                      <h5>Basis Pengetahuan</h5>
+                      <p>Kumpulan aturan dan fakta dari pakar psikiater yang digunakan untuk proses inferensi diagnosis.</p>
+                      <ul class="service-benefits">
+                        <li><i class="fa fa-check-circle"></i>Data Driven: Berbasis fakta yang ada</li>
+                        <li><i class="fa fa-check-circle"></i>Logis: Mengikuti aturan IF-THEN</li>
+                        <li><i class="fa fa-check-circle"></i>Efisien untuk diagnosis medis</li>
                       </ul>
                     </div>
                   </div>
@@ -189,7 +188,7 @@
             <div class="tab-pane fade" id="services-disclaimer" role="tabpanel">
               <div class="row g-4">
                 <div class="col-lg-12">
-                  <div class="service-item emergency-highlight">
+                  <div class="service-item">
                     <div class="service-icon-wrapper">
                       <i class="fa fa-exclamation-triangle"></i>
                     </div>
@@ -201,14 +200,18 @@
                         <li><i class="fa fa-info-circle"></i> Diagnosis pasti hanya dapat ditegakkan oleh Psikiater atau Psikolog Klinis melalui pemeriksaan langsung.</li>
                         <li><i class="fa fa-info-circle"></i> Jika hasil menunjukkan risiko tinggi, segera hubungi profesional kesehatan terdekat.</li>
                       </ul>
-                      <div class="emergency-actions mt-4">
-                        <a href="{{ url('/doctors') }}" class="btn-emergency">
-                          <i class="fa fa-user-md"></i>
-                          <span>Cari Dokter Terdekat</span>
-                        </a>
-                      </div>
+
                     </div>
                   </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tab 5: Panduan Keluarga -->
+            <div class="tab-pane fade" id="services-family" role="tabpanel">
+              <div class="row g-4">
+                <div class="col-lg-12">
+                  @include('public.partials.family-guide.general')
                 </div>
               </div>
             </div>
