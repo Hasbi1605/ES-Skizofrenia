@@ -62,7 +62,7 @@
                 </div>
                 <div class="card-content">
                   <h4>GitHub</h4>
-                  <p>github.com/hasbi<br>Project Repository</p>
+                  <p><a href="https://github.com/Hasbi1605/ES-Skizofrenia" target="_blank">Hasbi1605/ES-Skizofrenia</a><br>Project Repository</p>
                 </div>
               </div>
             </div>
@@ -70,9 +70,9 @@
             <div class="social-links-panel">
               <h5>Media Sosial Developer</h5>
               <div class="social-icons">
-                <a href="#" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
-                <a href="#" title="GitHub"><i class="bi bi-github"></i></a>
-                <a href="#" title="Instagram"><i class="bi bi-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/mhasbia16" target="_blank" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                <a href="https://github.com/Hasbi1605" target="_blank" title="GitHub"><i class="bi bi-github"></i></a>
+                <a href="https://hasbi1605.github.io/" target="_blank" title="Portfolio"><i class="bi bi-globe"></i></a>
               </div>
             </div>
           </div>

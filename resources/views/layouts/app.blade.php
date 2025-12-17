@@ -77,10 +77,9 @@
           </a>
           <p class="mb-3">Sistem pakar berbasis Certainty Factor untuk deteksi dini gejala skizofrenia.</p>
           <div class="social-links d-flex gap-2">
-            <a href="#" class="btn btn-sm btn-outline-primary"><i class="bi bi-twitter"></i></a>
-            <a href="#" class="btn btn-sm btn-outline-primary"><i class="bi bi-facebook"></i></a>
-            <a href="#" class="btn btn-sm btn-outline-primary"><i class="bi bi-instagram"></i></a>
-            <a href="#" class="btn btn-sm btn-outline-primary"><i class="bi bi-linkedin"></i></a>
+            <a href="https://github.com/Hasbi1605/ES-Skizofrenia" target="_blank" class="btn btn-sm btn-outline-primary" title="GitHub Repository"><i class="bi bi-github"></i></a>
+            <a href="https://www.linkedin.com/in/mhasbia16" target="_blank" class="btn btn-sm btn-outline-primary" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+            <a href="https://hasbi1605.github.io/" target="_blank" class="btn btn-sm btn-outline-primary" title="Portfolio"><i class="bi bi-globe"></i></a>
           </div>
         </div>
 
@@ -90,8 +89,8 @@
           <ul class="list-unstyled">
             <li><i class="bi bi-chevron-right"></i> <a href="{{ url('/') }}">Home</a></li>
             <li><i class="bi bi-chevron-right"></i> <a href="{{ url('/about') }}">About</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="{{ url('/types') }}">Jenis Skizofrenia</a></li>
             <li><i class="bi bi-chevron-right"></i> <a href="{{ url('/screening') }}">Mulai Diagnosis</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="{{ url('/contact') }}">Contact</a></li>
           </ul>
         </div>
 
@@ -100,10 +99,9 @@
           <h4>Informasi & Sumber Daya</h4>
           <ul class="list-unstyled">
             <li><i class="bi bi-chevron-right"></i> <a href="{{ url('/about') }}">Tentang Skizofrenia</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Panduan Keluarga</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">FAQ</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Privacy Policy</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Terms of Service</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="{{ url('/guide') }}">Panduan Keluarga</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="{{ url('/referrals') }}">Rujukan RSJ</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="{{ url('/contact') }}">Kontak</a></li>
           </ul>
         </div>
 
@@ -128,7 +126,7 @@
     <div class="container copyright text-center mt-4">
       <p>© <span>Copyright 2025</span> <strong class="px-1 sitename">SchizoCheck</strong> <span>All Rights Reserved</span></p>
       <div class="credits">
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> | Sistem Pakar v1.0
+        Developed by <a href="https://hasbi1605.github.io/" target="_blank">M. Hasbi Assidiqi</a> | Sistem Pakar v1.0
       </div>
     </div>
   </footer>

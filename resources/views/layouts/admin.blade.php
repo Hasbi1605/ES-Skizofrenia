@@ -14,6 +14,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <link href="{{ asset('backend/css/sb-admin-2.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('backend/css/admin-custom.css') }}" rel="stylesheet">
 
     @stack('styles')
 </head>
@@ -25,14 +26,15 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('admin.dashboard') }}">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+                <div class="sidebar-brand-icon">
+                    <i class="fas fa-brain"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+                <div class="sidebar-brand-text mx-3">SchizoCheck</div>
             </a>
 
             <hr class="sidebar-divider my-0">
 
+            <!-- Dashboard -->
             <li class="nav-item {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('admin.dashboard') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
@@ -40,24 +42,53 @@
                 </a>
             </li>
 
-            <li class="nav-item {{ request()->routeIs('admin.login') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ route('admin.login') }}">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Login</span>
+            <hr class="sidebar-divider">
+
+            <div class="sidebar-heading">
+                Master Data
+            </div>
+
+            <!-- Gejala -->
+            <li class="nav-item {{ request()->routeIs('admin.gejala.*') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('admin.gejala.index') }}">
+                    <i class="fas fa-fw fa-list-ul"></i>
+                    <span>Gejala</span>
                 </a>
             </li>
 
-            <li class="nav-item {{ request()->routeIs('admin.charts') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ route('admin.charts') }}">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Charts</span>
+            <!-- Diagnosis -->
+            <li class="nav-item {{ request()->routeIs('admin.diagnosis.*') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('admin.diagnosis.index') }}">
+                    <i class="fas fa-fw fa-stethoscope"></i>
+                    <span>Diagnosis</span>
                 </a>
             </li>
 
-            <li class="nav-item {{ request()->routeIs('admin.tables') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ route('admin.tables') }}">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span>
+            <hr class="sidebar-divider">
+
+            <div class="sidebar-heading">
+                Sistem Pakar
+            </div>
+
+            <!-- Rules -->
+            <li class="nav-item {{ request()->routeIs('admin.rules.*') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('admin.rules.index') }}">
+                    <i class="fas fa-fw fa-project-diagram"></i>
+                    <span>Rules (CF Pakar)</span>
+                </a>
+            </li>
+
+            <hr class="sidebar-divider">
+
+            <div class="sidebar-heading">
+                Data Screening
+            </div>
+
+            <!-- History -->
+            <li class="nav-item {{ request()->routeIs('admin.history.*') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('admin.history.index') }}">
+                    <i class="fas fa-fw fa-history"></i>
+                    <span>Riwayat Screening</span>
                 </a>
             </li>
 
@@ -83,7 +114,7 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->name }}</span>
                                 <img class="img-profile rounded-circle"
                                     src="{{ asset('backend/img/undraw_profile.svg') }}">
                             </a>
@@ -92,10 +123,6 @@
                                 <a class="dropdown-item" href="#">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Settings
                                 </a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
@@ -132,15 +159,18 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Yakin ingin logout?</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-body">Klik "Logout" di bawah untuk mengakhiri sesi.</div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
+                    <form action="{{ route('admin.logout') }}" method="POST" style="display: inline;">
+                        @csrf
+                        <button type="submit" class="btn btn-primary">Logout</button>
+                    </form>
                 </div>
             </div>
         </div>

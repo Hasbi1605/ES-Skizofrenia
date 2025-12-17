@@ -22,5 +22,8 @@ class DatabaseSeeder extends Seeder
 
         // Seed screening data
         $this->call(ScreeningSeeder::class);
+        
+        // Seed admin user
+        $this->call(AdminSeeder::class);
     }
 }

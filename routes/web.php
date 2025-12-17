@@ -2,6 +2,11 @@
 
 use App\Http\Controllers\PublicController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Admin\GejalaController;
+use App\Http\Controllers\Admin\DiagnosisController;
+use App\Http\Controllers\Admin\RuleController;
+use App\Http\Controllers\Admin\ScreeningHistoryController;
+use App\Http\Controllers\Auth\AdminAuthController;
 use App\Http\Controllers\ScreeningController;
 use Illuminate\Support\Facades\Route;
 
@@ -34,15 +39,33 @@ Route::post('/screening/answers', [ScreeningController::class, 'storeAnswers'])-
 Route::get('/screening/calculate', [ScreeningController::class, 'calculate'])->name('screening.calculate');
 Route::get('/screening/result/{id}', [ScreeningController::class, 'result'])->name('screening.result');
 
-// Admin
+// Admin Auth Routes (outside middleware)
+Route::get('/admin/login', [AdminAuthController::class, 'showLoginForm'])->name('admin.login');
+Route::post('/admin/login', [AdminAuthController::class, 'login'])->name('admin.login.submit');
+Route::post('/admin/logout', [AdminAuthController::class, 'logout'])->name('admin.logout');
 
-Route::prefix('admin')->group(function () {
-
+// Admin Routes (Protected)
+Route::prefix('admin')->middleware('admin.auth')->group(function () {
+    // Dashboard
     Route::get('/', [AdminController::class, 'dashboard'])->name('admin.dashboard');
 
+    // CMS Gejala (Symptoms)
+    Route::resource('gejala', GejalaController::class)->names('admin.gejala');
+
+    // CMS Diagnosis
+    Route::resource('diagnosis', DiagnosisController::class)->names('admin.diagnosis');
+
+    // CMS Rules (Knowledge Base)
+    Route::get('rules', [RuleController::class, 'index'])->name('admin.rules.index');
+    Route::get('rules/{diagnosis}/edit', [RuleController::class, 'edit'])->name('admin.rules.edit');
+    Route::put('rules/{diagnosis}', [RuleController::class, 'update'])->name('admin.rules.update');
+
+    // Screening History
+    Route::get('history', [ScreeningHistoryController::class, 'index'])->name('admin.history.index');
+    Route::get('history/{screening}', [ScreeningHistoryController::class, 'show'])->name('admin.history.show');
+
+    // Legacy routes (keeping for backward compatibility)
     Route::get('/tables', [AdminController::class, 'tables'])->name('admin.tables');
-
     Route::get('/charts', [AdminController::class, 'charts'])->name('admin.charts');
-
-    Route::get('/login', [AdminController::class, 'login'])->name('admin.login');
 });
+
