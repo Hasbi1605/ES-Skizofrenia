@@ -3,7 +3,6 @@ cmds = [
     "composer install --no-dev --optimize-autoloader",
     "npm install",
     "npm run build",
-    "php artisan config:cache",
     "php artisan route:cache",
     "php artisan view:cache"
 ]
@@ -12,4 +11,4 @@ cmds = [
 nixPkgs = ["php82", "php82Extensions.pdo_sqlite", "nodejs_18"]
 
 [start]
-cmd = "mkdir -p database && touch database/database.sqlite && php artisan migrate --force --seed && php artisan serve --host=0.0.0.0 --port=$PORT"
+cmd = "mkdir -p database && touch database/database.sqlite && php artisan config:clear && php artisan migrate --force --seed && php artisan serve --host=0.0.0.0 --port=$PORT"
