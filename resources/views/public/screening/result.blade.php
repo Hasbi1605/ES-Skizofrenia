@@ -265,65 +265,68 @@
                 </div>
               </div>
               
-            </div>
-          </div>
-        </div>
-
-        <!-- Recommendations -->
-        <div class="row justify-content-center mb-4">
-          <div class="col-lg-8">
-            <div class="recommendation-card p-4 bg-white rounded-3 shadow-sm">
-              <h5 class="mb-4" style="color: var(--heading-color);">
-                <i class="bi bi-lightbulb me-2" style="color: var(--accent-color);"></i>
-                Rekomendasi
-              </h5>
-              
-              <div class="row g-4">
-                <div class="col-md-6">
-                  <div class="service-item h-100 p-3 pt-4">
-                    <div class="service-icon-wrapper">
-                      <i class="fa fa-user-md"></i>
+              <!-- Recommendations (Accordion) -->
+              <div class="accordion-item border-0 shadow-sm rounded-3 mb-3">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseRecommendations">
+                    <i class="bi bi-lightbulb me-2" style="color: var(--accent-color);"></i>
+                    <strong>Rekomendasi</strong>
+                  </button>
+                </h2>
+                <div id="collapseRecommendations" class="accordion-collapse collapse" data-bs-parent="#resultAccordion">
+                  <div class="accordion-body">
+                    
+                    <div class="row g-4">
+                      <div class="col-md-6">
+                        <div class="service-item h-100 p-3 pt-4">
+                          <div class="service-icon-wrapper">
+                            <i class="fa fa-user-md"></i>
+                          </div>
+                          <div class="service-details">
+                            <h6>Konsultasi Profesional</h6>
+                            <p class="small text-muted mb-0">Jika hasil menunjukkan risiko sedang-tinggi, segera konsultasikan dengan psikiater atau psikolog klinis.</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="service-item h-100 p-3 pt-4">
+                          <div class="service-icon-wrapper">
+                            <i class="fa fa-phone-alt"></i>
+                          </div>
+                          <div class="service-details">
+                            <h6>Hotline Kesehatan Mental</h6>
+                            <p class="small text-muted mb-0">Into The Light: 119 ext 8 <br> Sejiwa: 119 ext 8 (24 jam)</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="service-item h-100 p-3 pt-4">
+                          <div class="service-icon-wrapper">
+                            <i class="fa fa-book-open"></i>
+                          </div>
+                          <div class="service-details">
+                            <h6>Pelajari Lebih Lanjut</h6>
+                            <p class="small text-muted mb-0">Baca informasi lengkap tentang skizofrenia dan penanganannya di halaman <a href="{{ url('/about') }}">Tentang Skizofrenia</a>.</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="service-item h-100 p-3 pt-4">
+                          <div class="service-icon-wrapper">
+                            <i class="fa fa-hospital"></i>
+                          </div>
+                          <div class="service-details">
+                            <h6>Fasilitas Kesehatan</h6>
+                            <p class="small text-muted mb-0">Temukan daftar rumah sakit dan klinik kesehatan mental terdekat di halaman <a href="{{ url('/referrals') }}">Rujukan</a>.</p>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                    <div class="service-details">
-                      <h6>Konsultasi Profesional</h6>
-                      <p class="small text-muted mb-0">Jika hasil menunjukkan risiko sedang-tinggi, segera konsultasikan dengan psikiater atau psikolog klinis.</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="service-item h-100 p-3 pt-4">
-                    <div class="service-icon-wrapper">
-                      <i class="fa fa-phone-alt"></i>
-                    </div>
-                    <div class="service-details">
-                      <h6>Hotline Kesehatan Mental</h6>
-                      <p class="small text-muted mb-0">Into The Light: 119 ext 8 <br> Sejiwa: 119 ext 8 (24 jam)</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="service-item h-100 p-3 pt-4">
-                    <div class="service-icon-wrapper">
-                      <i class="fa fa-book-open"></i>
-                    </div>
-                    <div class="service-details">
-                      <h6>Pelajari Lebih Lanjut</h6>
-                      <p class="small text-muted mb-0">Baca informasi lengkap tentang skizofrenia dan penanganannya di halaman <a href="{{ url('/about') }}">Tentang Skizofrenia</a>.</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="service-item h-100 p-3 pt-4">
-                    <div class="service-icon-wrapper">
-                      <i class="fa fa-hospital"></i>
-                    </div>
-                    <div class="service-details">
-                      <h6>Fasilitas Kesehatan</h6>
-                      <p class="small text-muted mb-0">Temukan daftar rumah sakit dan klinik kesehatan mental terdekat di halaman <a href="{{ url('/referrals') }}">Rujukan</a>.</p>
-                    </div>
+                    
                   </div>
                 </div>
               </div>
+              
             </div>
           </div>
         </div>
@@ -332,9 +335,6 @@
         <div class="row justify-content-center">
           <div class="col-lg-8">
             <div class="action-buttons d-flex flex-wrap justify-content-center gap-3">
-              <button onclick="window.print()" class="btn btn-outline-secondary px-4 py-2">
-                <i class="bi bi-printer me-2"></i>Cetak Hasil
-              </button>
               <a href="{{ url('/screening') }}" class="btn btn-primary px-4 py-2" style="background-color: var(--accent-color); border-color: var(--accent-color);">
                 <i class="bi bi-arrow-repeat me-2"></i>Screening Ulang
               </a>
@@ -350,24 +350,5 @@
     </section><!-- /Result Section -->
 
 </main>
-
-<style>
-  @media print {
-    .page-title, .action-buttons, .accordion-button {
-      break-inside: avoid;
-    }
-    .navbar, footer, .action-buttons {
-      display: none !important;
-    }
-    .result-main-card {
-      background: var(--accent-color) !important;
-      -webkit-print-color-adjust: exact;
-      print-color-adjust: exact;
-    }
-    .accordion-collapse {
-      display: block !important;
-    }
-  }
-</style>
 
 @endsection
