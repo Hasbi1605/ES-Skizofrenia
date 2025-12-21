@@ -174,9 +174,9 @@
                       <h5>Komitmen Privasi Kami</h5>
                       <p>Kami memahami bahwa kesehatan mental adalah hal yang sangat pribadi. Oleh karena itu, aplikasi ini didesain dengan prinsip privasi:</p>
                       <ul class="service-benefits mt-3">
-                        <li><i class="fa fa-lock"></i> <strong>Anonimitas:</strong> Anda tidak perlu memasukkan nama asli atau identitas kependudukan (KTP) untuk melakukan tes.</li>
-                        <li><i class="fa fa-database"></i> <strong>Keamanan Data:</strong> Data gejala yang Anda masukkan hanya diproses untuk keperluan diagnosis saat itu juga.</li>
-                        <li><i class="fa fa-user-secret"></i> <strong>Tanpa Rekam Medis Publik:</strong> Hasil tes Anda tidak terhubung dengan database rumah sakit atau asuransi manapun.</li>
+                        <li><i class="fa fa-lock"></i> <strong>Anonimitas:</strong>&thinsp;Anda tidak perlu memasukkan nama asli atau identitas kependudukan (KTP) untuk melakukan tes.</li>
+                        <li><i class="fa fa-database"></i> <strong>Keamanan Data:</strong>&thinsp;Data gejala yang Anda masukkan hanya diproses untuk keperluan diagnosis saat itu juga.</li>
+                        <li><i class="fa fa-user-secret"></i> <strong>Tanpa Rekam Medis Publik:</strong>&thinsp;Hasil tes Anda tidak terhubung dengan database rumah sakit atau asuransi manapun.</li>
                       </ul>
                     </div>
                   </div>

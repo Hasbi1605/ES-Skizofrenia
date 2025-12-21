@@ -52,7 +52,7 @@
                 </div>
                 <div class="card-content">
                   <h4>Email Support</h4>
-                  <p>hasbi@schizocheck.com<br>dev@schizocheck.com</p>
+                  <p>terry.delvon0805@gmail.com<br>231210013@student.mercubana-yogya.ac.id</p>
                 </div>
               </div>
 
@@ -62,7 +62,7 @@
                 </div>
                 <div class="card-content">
                   <h4>GitHub</h4>
-                  <p><a href="https://github.com/Hasbi1605/ES-Skizofrenia" target="_blank">Hasbi1605/ES-Skizofrenia</a><br>Project Repository</p>
+                  <p><a href="https://github.com/Hasbi1605/ES-Skizofrenia" target="_blank" style="color: #ffffffff;">Hasbi1605/ES-Skizofrenia</a><br>Project Repository</p>
                 </div>
               </div>
             </div>

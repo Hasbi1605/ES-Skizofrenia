@@ -3,16 +3,6 @@
 
 <div class="row g-4">
 
-    <!-- Intro Alert -->
-    <div class="col-lg-12">
-        <div class="alert alert-warning d-flex align-items-center mb-0" role="alert">
-            <i class="fa fa-exclamation-triangle me-3 fs-4"></i>
-            <div>
-                <strong>Penting untuk Diketahui:</strong> Skizofrenia adalah gangguan medis yang dapat ditangani. Pemahaman yang benar adalah kunci pemulihan.
-            </div>
-        </div>
-    </div>
-
     <!-- Section: Mitos vs Fakta (Pemasungan) -->
     <div class="col-lg-6">
         <div class="service-item h-100">
@@ -65,9 +55,9 @@
                 <h5>Mengapa ke Profesional?</h5>
                 <p>Perbedaan penanganan medis profesional dibandingkan dengan pengobatan alternatif yang tidak terstandar.</p>
                 <ul class="service-benefits mt-3">
-                    <li><i class="fa fa-check-circle"></i><strong>Diagnosis Akurat:</strong> Berbasis pedoman medis (PPDGJ/DSM).</li>
-                    <li><i class="fa fa-check-circle"></i><strong>Terapi Tepat:</strong> Kombinasi obat dan konseling.</li>
-                    <li><i class="fa fa-check-circle"></i><strong>Terukur:</strong> Perkembangan dipantau secara berkala.</li>
+                    <li><i class="fa fa-check-circle"></i><strong>Diagnosis Akurat:</strong>&thinsp;Berbasis pedoman medis (PPDGJ/DSM).</li>
+                    <li><i class="fa fa-check-circle"></i><strong>Terapi Tepat:</strong>&thinsp;Kombinasi obat dan konseling.</li>
+                    <li><i class="fa fa-check-circle"></i><strong>Terukur:</strong>&thinsp;Perkembangan dipantau secara berkala.</li>
                 </ul>
             </div>
         </div>
@@ -83,9 +73,9 @@
                 <h5>Peran Keluarga</h5>
                 <p>Keluarga adalah support system utama. Berikut hal sederhana yang berdampak besar:</p>
                 <ul class="service-benefits mt-3">
-                    <li><i class="fa fa-heart"></i><strong>Komunikasi:</strong> Bicara tenang, jangan mendebat delusi.</li>
-                    <li><i class="fa fa-calendar-alt"></i><strong>Rutinitas:</strong> Bantu jaga jadwal minum obat.</li>
-                    <li><i class="fa fa-users"></i><strong>Dukungan:</strong> Jangan biarkan penderita terisolasi.</li>
+                    <li><i class="fa fa-heart"></i><strong>Komunikasi:</strong>&thinsp;Bicara tenang, jangan mendebat delusi.</li>
+                    <li><i class="fa fa-calendar-alt"></i><strong>Rutinitas:</strong> &thinsp;Bantu jaga jadwal minum obat.</li>
+                    <li><i class="fa fa-users"></i><strong>Dukungan:</strong>&thinsp;Jangan biarkan penderita terisolasi.</li>
                 </ul>
             </div>
         </div>

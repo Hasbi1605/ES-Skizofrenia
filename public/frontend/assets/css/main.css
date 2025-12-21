@@ -823,22 +823,9 @@ section,
 .section-title h2 {
     font-size: 32px;
     font-weight: 700;
-    margin-bottom: 20px;
-    padding-bottom: 20px;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
     position: relative;
-}
-
-.section-title h2:after {
-    content: "";
-    position: absolute;
-    display: block;
-    width: 50px;
-    height: 3px;
-    background: var(--accent-color);
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
 }
 
 .section-title p {

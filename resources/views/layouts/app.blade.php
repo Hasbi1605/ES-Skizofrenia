@@ -45,11 +45,11 @@
 
       <nav id="navmenu" class="navmenu">
        <ul>
-          <li><a href="{{ url('/') }}" class="{{ request()->is('/') ? 'active' : '' }}">Home</a></li>
-          <li><a href="{{ url('/about') }}" class="{{ request()->is('about') ? 'active' : '' }}">About</a></li>
+          <li><a href="{{ url('/') }}" class="{{ request()->is('/') ? 'active' : '' }}">Beranda</a></li>
+          <li><a href="{{ url('/about') }}" class="{{ request()->is('about') ? 'active' : '' }}">Tentang</a></li>
           <li><a href="{{ url('/types') }}" class="{{ request()->is('types') ? 'active' : '' }}">Jenis Skizofrenia</a></li>
-          <li><a href="{{ url('/guide') }}" class="{{ request()->is('guide') ? 'active' : '' }}">Panduan</a></li>
-          <li><a href="{{ url('/referrals') }}" class="{{ request()->is('referrals') ? 'active' : '' }}">Rujukan RSJ</a></li>
+          <li><a href="{{ url('/guide') }}" class="{{ request()->is('guide') ? 'active' : '' }}">Panduan & Fitur</a></li>
+          <li><a href="{{ url('/referrals') }}" class="{{ request()->is('referrals') ? 'active' : '' }}">Alur Pengobatan</a></li>
           <li><a href="{{ url('/contact') }}" class="{{ request()->is('contact') ? 'active' : '' }}">Kontak</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
@@ -87,8 +87,8 @@
         <div class="col-lg-2 col-md-6 footer-links">
           <h4>Menu Utama</h4>
           <ul class="list-unstyled">
-            <li><i class="bi bi-chevron-right"></i> <a href="{{ url('/') }}">Home</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="{{ url('/about') }}">About</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="{{ url('/') }}">Beranda</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="{{ url('/about') }}">Tentang</a></li>
             <li><i class="bi bi-chevron-right"></i> <a href="{{ url('/types') }}">Jenis Skizofrenia</a></li>
             <li><i class="bi bi-chevron-right"></i> <a href="{{ url('/screening') }}">Mulai Diagnosis</a></li>
           </ul>
@@ -100,7 +100,7 @@
           <ul class="list-unstyled">
             <li><i class="bi bi-chevron-right"></i> <a href="{{ url('/about') }}">Tentang Skizofrenia</a></li>
             <li><i class="bi bi-chevron-right"></i> <a href="{{ url('/guide') }}">Panduan Keluarga</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="{{ url('/referrals') }}">Rujukan RSJ</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="{{ url('/referrals') }}">Panduan Pengobatan</a></li>
             <li><i class="bi bi-chevron-right"></i> <a href="{{ url('/contact') }}">Kontak</a></li>
           </ul>
         </div>
