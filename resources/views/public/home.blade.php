@@ -116,7 +116,7 @@
                       <i class="bi bi-database-check"></i>
                     </div>
                     <h4>Basis Pengetahuan</h4>
-                    <p>Dibangun dari literatur medis dan konsultasi pakar untuk memastikan akurasi diagnosis yang optimal.</p>
+                    <p>Dibangun dari literatur medis ilmiah dan jurnal peer-reviewed untuk memastikan akurasi diagnosis yang optimal.</p>
                   </div>
                 </div>
               </div>

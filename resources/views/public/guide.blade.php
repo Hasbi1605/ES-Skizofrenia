@@ -98,7 +98,7 @@
                       <ul class="service-benefits">
                         <li><i class="fa fa-check-circle"></i>Proses instan</li>
                         <li><i class="fa fa-check-circle"></i>Analisis komprehensif</li>
-                        <li><i class="fa fa-check-circle"></i>Berbasis data pakar</li>
+                        <li><i class="fa fa-check-circle"></i>Berbasis literatur ilmiah</li>
                       </ul>
                     </div>
                   </div>
@@ -133,10 +133,10 @@
                     </div>
                     <div class="service-details">
                       <h5>Certainty Factor (CF)</h5>
-                      <p>Metode untuk mengakomodasi ketidakpastian pemikiran seorang pakar. Mengukur tingkat keyakinan terhadap suatu fakta.</p>
+                      <p>Metode untuk mengakomodasi ketidakpastian dalam inferensi diagnosis. Mengukur tingkat keyakinan terhadap suatu fakta.</p>
                       <ul class="service-benefits">
                         <li><i class="fa fa-check-circle"></i>Nilai 0 sampai 1 (0-100%)</li>
-                        <li><i class="fa fa-check-circle"></i>Menggabungkan keyakinan user & pakar</li>
+                        <li><i class="fa fa-check-circle"></i>Menggabungkan keyakinan user & literatur</li>
                         <li><i class="fa fa-check-circle"></i>Hasil lebih nuansa daripada Ya/Tidak</li>
                       </ul>
                     </div>
@@ -150,7 +150,7 @@
                     </div>
                     <div class="service-details">
                       <h5>Basis Pengetahuan</h5>
-                      <p>Kumpulan aturan dan fakta dari pakar psikiater yang digunakan untuk proses inferensi diagnosis.</p>
+                      <p>Kumpulan aturan dan fakta berdasarkan literatur ilmiah yang digunakan untuk proses inferensi diagnosis.</p>
                       <ul class="service-benefits">
                         <li><i class="fa fa-check-circle"></i>Data Driven: Berbasis fakta yang ada</li>
                         <li><i class="fa fa-check-circle"></i>Logis: Mengikuti aturan IF-THEN</li>

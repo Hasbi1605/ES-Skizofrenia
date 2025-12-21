@@ -23,7 +23,7 @@
     <div class="card-body">
         <p class="text-muted mb-3">
             <i class="fas fa-info-circle"></i> 
-            Tabel ini menunjukkan nilai CF (Certainty Factor) dari pakar untuk setiap kombinasi gejala dan diagnosis.
+            Tabel ini menunjukkan nilai CF (Certainty Factor) berdasarkan literatur untuk setiap kombinasi gejala dan diagnosis.
             Klik tombol "Edit" untuk mengubah nilai CF per diagnosis.
         </p>
         

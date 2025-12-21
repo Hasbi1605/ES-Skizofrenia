@@ -99,8 +99,8 @@
           <h4>Informasi & Sumber Daya</h4>
           <ul class="list-unstyled">
             <li><i class="bi bi-chevron-right"></i> <a href="{{ url('/about') }}">Tentang Skizofrenia</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="{{ url('/guide') }}">Panduan Keluarga</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="{{ url('/referrals') }}">Panduan Pengobatan</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="{{ url('/guide') }}">Panduan & Fitur</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="{{ url('/referrals') }}">Alur Pengobatan</a></li>
             <li><i class="bi bi-chevron-right"></i> <a href="{{ url('/contact') }}">Kontak</a></li>
           </ul>
         </div>
@@ -112,12 +112,7 @@
             <p class="mb-2"><strong><i class="bi bi-telephone-fill me-2"></i>Hotline Nasional:</strong></p>
             <p class="ms-4">119 ext 8 (Kesehatan Mental - 24/7)</p>
           </div>
-          <div class="mb-3">
-            <p class="mb-2"><strong><i class="bi bi-hospital me-2"></i>Rumah Sakit Jiwa:</strong></p>
-            <p class="ms-4 mb-1">RSJ Dr. Soeharto Heerdjan, Jakarta</p>
-            <p class="ms-4 mb-1">RSJ Prof. Dr. Soerojo, Magelang</p>
-            <p class="ms-4">RSJ Marzoeki Mahdi, Bogor</p>
-          </div>
+
         </div>
 
       </div>
