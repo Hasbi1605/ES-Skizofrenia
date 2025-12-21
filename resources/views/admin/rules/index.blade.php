@@ -17,22 +17,17 @@
 <div class="card shadow mb-4">
     <div class="card-header py-3">
         <h6 class="m-0 font-weight-bold text-primary">
-            <i class="fas fa-project-diagram"></i> Matrix CF Pakar (Gejala × Diagnosis)
+            <i class=""></i> CF Pakar (Gejala × Diagnosis)
         </h6>
     </div>
     <div class="card-body">
-        <p class="text-muted mb-3">
-            <i class="fas fa-info-circle"></i> 
-            Tabel ini menunjukkan nilai CF (Certainty Factor) berdasarkan literatur untuk setiap kombinasi gejala dan diagnosis.
-            Klik tombol "Edit" untuk mengubah nilai CF per diagnosis.
-        </p>
         
         <div class="table-responsive">
-            <table class="table table-bordered table-sm" width="100%" cellspacing="0">
-                <thead class="thead-light">
+            <table class="table table-bordered" width="100%" cellspacing="0">
+                <thead>
                     <tr>
-                        <th class="text-center" style="min-width: 80px;">Kode</th>
-                        <th style="min-width: 250px;">Gejala</th>
+                        <th style="font-size: 18px;">Kode</th>
+                        <th style="font-size: 18px;">Nama Gejala</th>
                         @foreach($diagnoses as $diagnosis)
                         <th class="text-center" style="min-width: 100px;">
                             <span class="badge badge-info">{{ $diagnosis->kode }}</span>

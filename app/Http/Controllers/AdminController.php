@@ -34,4 +34,5 @@ class AdminController extends Controller
      public function login() {
         return view('admin.login');
     }
+    
 }

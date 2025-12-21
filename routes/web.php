@@ -9,6 +9,8 @@ use App\Http\Controllers\Admin\ScreeningHistoryController;
 use App\Http\Controllers\Auth\AdminAuthController;
 use App\Http\Controllers\ScreeningController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\LaporanController;
+use App\Http\Controllers\ContactController;
 
 
 
@@ -29,6 +31,7 @@ Route::get('/about', [PublicController::class, 'about'])->name('about');
 Route::get('/guide', [PublicController::class, 'guide'])->name('guide');
 Route::get('/referrals', [PublicController::class, 'referrals'])->name('referrals');
 Route::get('/contact', [PublicController::class, 'contact'])->name('contact');
+Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 
 // Screening Routes
 Route::get('/screening', [ScreeningController::class, 'index'])->name('screening');
@@ -55,6 +58,9 @@ Route::prefix('admin')->middleware('admin.auth')->group(function () {
     // CMS Diagnosis
     Route::resource('diagnosis', DiagnosisController::class)->names('admin.diagnosis');
 
+    // Laporan User
+    Route::resource('laporan', LaporanController::class)->names('admin.laporan');
+
     // CMS Rules (Knowledge Base)
     Route::get('rules', [RuleController::class, 'index'])->name('admin.rules.index');
     Route::get('rules/{diagnosis}/edit', [RuleController::class, 'edit'])->name('admin.rules.edit');
@@ -67,5 +73,6 @@ Route::prefix('admin')->middleware('admin.auth')->group(function () {
     // Legacy routes (keeping for backward compatibility)
     Route::get('/tables', [AdminController::class, 'tables'])->name('admin.tables');
     Route::get('/charts', [AdminController::class, 'charts'])->name('admin.charts');
+
 });
 

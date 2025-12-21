@@ -42,7 +42,7 @@
                 </div>
                 <div class="card-content">
                   <h4>Developer</h4>
-                  <p>Muhammad Hasbi Ash Shiddiqi<br>Full Stack Developer</p>
+                  <p>Muhammad Hasbi Ash Shiddiqi<br></p>
                 </div>
               </div>
 
@@ -82,18 +82,35 @@
               <h3>Laporkan Masalah Sistem</h3>
               <p>Temukan bug atau error? Silakan laporkan detailnya di sini agar segera kami perbaiki.</p>
 
-              <form action="forms/contact.php" method="post" class="php-email-form">
+              @if(session('success'))
+              <div class="alert alert-success mb-4">
+                <i class="bi bi-check-circle me-2"></i>{{ session('success') }}
+              </div>
+              @endif
+
+              @if($errors->any())
+              <div class="alert alert-danger mb-4">
+                <ul class="mb-0">
+                  @foreach($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                  @endforeach
+                </ul>
+              </div>
+              @endif
+
+              <form action="{{ route('contact.store') }}" method="POST">
+                @csrf
                 <div class="row gy-3">
                   <div class="col-md-6">
                     <div class="form-floating">
-                      <input type="text" class="form-control" id="nameInput" name="name" placeholder="Nama Pelapor" required="">
+                      <input type="text" class="form-control" id="nameInput" name="name" placeholder="Nama Pelapor" value="{{ old('name') }}" required="">
                       <label for="nameInput">Nama Pelapor</label>
                     </div>
                   </div>
 
                   <div class="col-md-6">
                     <div class="form-floating">
-                      <input type="email" class="form-control" id="emailInput" name="email" placeholder="Email Address" required="">
+                      <input type="email" class="form-control" id="emailInput" name="email" placeholder="Email Address" value="{{ old('email') }}" required="">
                       <label for="emailInput">Email Address</label>
                     </div>
                   </div>
@@ -102,11 +119,11 @@
                     <div class="form-floating">
                       <select class="form-select" id="categoryInput" name="category" required="">
                         <option value="">-- Pilih Jenis Laporan --</option>
-                        <option value="bug">Bug / Error Aplikasi</option>
-                        <option value="ui">Masalah Tampilan (UI/UX)</option>
-                        <option value="feature">Saran Fitur Baru</option>
-                        <option value="content">Koreksi Konten/Materi</option>
-                        <option value="other">Lainnya</option>
+                        <option value="bug" {{ old('category') == 'bug' ? 'selected' : '' }}>Bug / Error Aplikasi</option>
+                        <option value="ui" {{ old('category') == 'ui' ? 'selected' : '' }}>Masalah Tampilan (UI/UX)</option>
+                        <option value="feature" {{ old('category') == 'feature' ? 'selected' : '' }}>Saran Fitur Baru</option>
+                        <option value="content" {{ old('category') == 'content' ? 'selected' : '' }}>Koreksi Konten/Materi</option>
+                        <option value="other" {{ old('category') == 'other' ? 'selected' : '' }}>Lainnya</option>
                       </select>
                       <label for="categoryInput">Jenis Laporan</label>
                     </div>
@@ -114,23 +131,19 @@
 
                   <div class="col-12">
                     <div class="form-floating">
-                      <input type="text" class="form-control" id="subjectInput" name="subject" placeholder="Judul Masalah" required="">
+                      <input type="text" class="form-control" id="subjectInput" name="subject" placeholder="Judul Masalah" value="{{ old('subject') }}" required="">
                       <label for="subjectInput">Judul Masalah</label>
                     </div>
                   </div>
 
                   <div class="col-12">
                     <div class="form-floating">
-                      <textarea class="form-control" id="messageInput" name="message" rows="6" placeholder="Deskripsi Masalah (Sertakan langkah-langkah untuk mereproduksi error jika ada)" required="" style="height: 150px"></textarea>
+                      <textarea class="form-control" id="messageInput" name="message" rows="6" placeholder="Deskripsi Masalah (Sertakan langkah-langkah untuk mereproduksi error jika ada)" required="" style="height: 150px">{{ old('message') }}</textarea>
                       <label for="messageInput">Deskripsi Masalah</label>
                     </div>
                   </div>
 
                   <div class="col-12">
-                    <div class="loading" style="display:none;">Loading...</div>
-                    <div class="error-message"></div>
-                    <div class="sent-message" style="display:none;">Laporan Anda telah terkirim. Terima kasih atas kontribusi Anda!</div>
-
                     <div class="d-grid">
                       <button type="submit" class="btn-submit">Kirim Laporan <i class="bi bi-bug-fill ms-2"></i></button>
                     </div>

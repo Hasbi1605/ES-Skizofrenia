@@ -45,7 +45,7 @@
             <hr class="sidebar-divider">
 
             <div class="sidebar-heading">
-                Master Data
+                Data
             </div>
 
             <!-- Gejala -->
@@ -67,7 +67,7 @@
             <hr class="sidebar-divider">
 
             <div class="sidebar-heading">
-                Sistem Pakar
+                Rules
             </div>
 
             <!-- Rules -->
@@ -81,7 +81,7 @@
             <hr class="sidebar-divider">
 
             <div class="sidebar-heading">
-                Data Screening
+                Riwayat & Laporan
             </div>
 
             <!-- History -->
@@ -89,6 +89,13 @@
                 <a class="nav-link" href="{{ route('admin.history.index') }}">
                     <i class="fas fa-fw fa-history"></i>
                     <span>Riwayat Screening</span>
+                </a>
+            </li>
+
+            <li class="nav-item {{ request()->routeIs('admin.laporan.*') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('admin.laporan.index') }}">
+                    <i class="fas fa-fw fa-exclamation-triangle"></i>
+                    <span>Laporan User</span>
                 </a>
             </li>
 
