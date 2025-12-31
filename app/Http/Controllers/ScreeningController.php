@@ -29,8 +29,9 @@ class ScreeningController extends Controller
         1 => 'Positif',
         2 => 'Negatif',
         3 => 'Disorganisasi',
-        4 => 'Prodromal',
-        5 => 'Umum',
+        4 => 'Katatonik',
+        5 => 'Prodromal',
+        6 => 'Umum',
     ];
 
     /**

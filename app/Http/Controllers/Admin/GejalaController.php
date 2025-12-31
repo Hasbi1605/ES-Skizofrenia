@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Gejala;
+use App\Models\Rule;
 use Illuminate\Http\Request;
 
 class GejalaController extends Controller
@@ -74,6 +75,14 @@ class GejalaController extends Controller
      */
     public function destroy(Gejala $gejala)
     {
+        // Cek apakah gejala memiliki rules (CF Pakar)
+        $rulesCount = Rule::where('gejala_id', $gejala->id)->count();
+        
+        if ($rulesCount > 0) {
+            return redirect()->route('admin.gejala.index')
+                ->with('error', "Gejala '{$gejala->kode}' tidak dapat dihapus karena memiliki {$rulesCount} rules (CF Pakar) yang terkait. Hapus rules terlebih dahulu.");
+        }
+        
         $gejala->delete();
 
         return redirect()->route('admin.gejala.index')

@@ -167,4 +167,156 @@
             </div>
         </div>
     </div>
+
+    <!-- Charts Section -->
+    <div class="row">
+        <!-- Donut Chart - Distribusi Diagnosis -->
+        <div class="col-lg-5">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">
+                        <i class="fas fa-chart-pie"></i> Distribusi Hasil Diagnosis
+                    </h6>
+                </div>
+                <div class="card-body">
+                    @if($diagnosisDistribution->count() > 0)
+                        <div class="chart-container" style="position: relative; height: 300px;">
+                            <canvas id="diagnosisChart"></canvas>
+                        </div>
+                        <div class="mt-3 text-center small">
+                            @foreach($diagnosisDistribution as $item)
+                                <span class="mr-2">
+                                    <i class="fas fa-circle" style="color: {{ ['#4e73df', '#1cc88a', '#36b9cc', '#f6c23e', '#e74a3b', '#858796'][$loop->index % 6] }}"></i> 
+                                    {{ $item->diagnosis_utama }} ({{ $item->total }})
+                                </span>
+                            @endforeach
+                        </div>
+                    @else
+                        <div class="text-center py-5">
+                            <i class="fas fa-chart-pie fa-3x text-gray-300 mb-3"></i>
+                            <p class="text-muted">Belum ada data screening</p>
+                        </div>
+                    @endif
+                </div>
+            </div>
+        </div>
+
+        <!-- Line Chart - Trend Screening -->
+        <div class="col-lg-7">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">
+                        <i class="fas fa-chart-line"></i> Trend Screening 7 Hari Terakhir
+                    </h6>
+                </div>
+                <div class="card-body">
+                    <div class="chart-container" style="position: relative; height: 350px;">
+                        <canvas id="trendChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
+
+@push('scripts')
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Donut Chart - Distribusi Diagnosis
+    @if($diagnosisDistribution->count() > 0)
+    const diagnosisCtx = document.getElementById('diagnosisChart').getContext('2d');
+    new Chart(diagnosisCtx, {
+        type: 'doughnut',
+        data: {
+            labels: {!! json_encode($diagnosisDistribution->pluck('diagnosis_utama')) !!},
+            datasets: [{
+                data: {!! json_encode($diagnosisDistribution->pluck('total')) !!},
+                backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc', '#f6c23e', '#e74a3b', '#858796'],
+                hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf', '#dda20a', '#be2617', '#60616f'],
+                borderWidth: 2,
+                borderColor: '#fff'
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            cutout: '60%',
+            plugins: {
+                legend: {
+                    display: false
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                            const percentage = ((context.raw / total) * 100).toFixed(1);
+                            return context.label + ': ' + context.raw + ' (' + percentage + '%)';
+                        }
+                    }
+                }
+            }
+        }
+    });
+    @endif
+
+    // Line Chart - Trend Screening 7 Hari Terakhir
+    const trendCtx = document.getElementById('trendChart').getContext('2d');
+    new Chart(trendCtx, {
+        type: 'line',
+        data: {
+            labels: {!! json_encode(array_column($screeningTrend, 'date')) !!},
+            datasets: [{
+                label: 'Jumlah Screening',
+                data: {!! json_encode(array_column($screeningTrend, 'count')) !!},
+                backgroundColor: 'rgba(78, 115, 223, 0.1)',
+                borderColor: '#4e73df',
+                borderWidth: 3,
+                pointBackgroundColor: '#4e73df',
+                pointBorderColor: '#fff',
+                pointBorderWidth: 2,
+                pointRadius: 5,
+                pointHoverRadius: 7,
+                fill: true,
+                tension: 0.3
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    display: false
+                },
+                tooltip: {
+                    backgroundColor: '#2e59d9',
+                    titleFont: { size: 14 },
+                    bodyFont: { size: 13 },
+                    padding: 12
+                }
+            },
+            scales: {
+                x: {
+                    grid: {
+                        display: false
+                    },
+                    ticks: {
+                        font: { size: 12 }
+                    }
+                },
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        precision: 0,
+                        font: { size: 12 }
+                    },
+                    grid: {
+                        color: 'rgba(0,0,0,0.05)'
+                    }
+                }
+            }
+        }
+    });
+});
+</script>
+@endpush

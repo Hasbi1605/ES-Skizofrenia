@@ -3,9 +3,10 @@
 <div class="family-guide-content">
 
     {{-- Header --}}
-    <div class="mb-3 pb-2 border-bottom">
-        <h5 class="fw-bold mb-1" style="color: var(--heading-color); font-family: var(--heading-font);">Panduan Skizofrenia Hebeferenik</h5>
-        <p class="text-muted mb-0" style="font-size: 0.95rem;">Fokus utama: rutinitas terstruktur dan kesabaran.</p>
+    {{-- Header --}}
+    <div class="alert alert-light border-left-primary shadow-sm mb-4" role="alert" style="border-left: 4px solid var(--accent-color);">
+        <h6 class="fw-bold mb-1" style="color: var(--heading-color);">Panduan Penanganan: Skizofrenia Hebefrenik</h6>
+        <p class="mb-0 small text-muted"><i class="bi bi-info-circle me-1"></i>Fokus utama: rutinitas terstruktur dan kesabaran.</p>
     </div>
 
     {{-- Struktur Rutinitas --}}

@@ -32,7 +32,7 @@
                         <th class="text-center" style="min-width: 100px;">
                             <span class="badge badge-info">{{ $diagnosis->kode }}</span>
                             <br>
-                            <small>{{ Str::limit($diagnosis->nama, 15) }}</small>
+                            <small>{{ Str::limit(str_replace('Skizofrenia ', '', $diagnosis->nama), 15) }}</small>
                         </th>
                         @endforeach
                     </tr>
@@ -87,7 +87,7 @@
                 @foreach($diagnoses as $diagnosis)
                 <a href="{{ route('admin.rules.edit', $diagnosis) }}" class="btn btn-outline-primary btn-sm mr-2 mb-1">
                     <span class="badge badge-primary mr-1">{{ $diagnosis->kode }}</span>
-                    {{ Str::limit($diagnosis->nama, 20) }}
+                    {{ str_replace('Skizofrenia ', '', $diagnosis->nama) }}
                 </a>
                 @endforeach
             </div>

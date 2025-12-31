@@ -21,8 +21,31 @@ class AdminController extends Controller
         $recentScreenings = HasilDiagnosis::orderBy('created_at', 'desc')
             ->take(5)
             ->get();
+        
+        // Data untuk Donut Chart - Distribusi Diagnosis
+        $diagnosisDistribution = HasilDiagnosis::selectRaw('diagnosis_utama, COUNT(*) as total')
+            ->whereNotNull('diagnosis_utama')
+            ->groupBy('diagnosis_utama')
+            ->orderBy('total', 'desc')
+            ->get();
+        
+        // Data untuk Line Chart - Trend Screening 7 Hari Terakhir
+        $screeningTrend = [];
+        for ($i = 6; $i >= 0; $i--) {
+            $date = now()->subDays($i);
+            $count = HasilDiagnosis::whereDate('created_at', $date->toDateString())->count();
+            $screeningTrend[] = [
+                'date' => $date->format('d M'),
+                'count' => $count
+            ];
+        }
             
-        return view('admin.dashboard', compact('stats', 'recentScreenings'));
+        return view('admin.dashboard', compact(
+            'stats', 
+            'recentScreenings',
+            'diagnosisDistribution',
+            'screeningTrend'
+        ));
     }
     public function tables() {
         return view('admin.tables');

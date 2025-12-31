@@ -1,6 +1,12 @@
 {{-- General Family Guide - Myths & Education about Schizophrenia in Indonesia --}}
 {{-- Refactored to match guide.blade.php style using .service-item --}}
 
+    {{-- Header --}}
+    <div class="alert alert-light border-left-primary shadow-sm mb-4" role="alert" style="border-left: 4px solid var(--accent-color);">
+        <h6 class="fw-bold mb-1" style="color: var(--heading-color);">Edukasi & Mitos Skizofrenia</h6>
+        <p class="mb-0 small text-muted"><i class="bi bi-info-circle me-1"></i>Informasi penting untuk keluarga dan masyarakat umum.</p>
+    </div>
+
 <div class="row g-4">
 
     <!-- Section: Mitos vs Fakta (Pemasungan) -->

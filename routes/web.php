@@ -56,7 +56,9 @@ Route::prefix('admin')->middleware('admin.auth')->group(function () {
     Route::resource('gejala', GejalaController::class)->names('admin.gejala');
 
     // CMS Diagnosis
-    Route::resource('diagnosis', DiagnosisController::class)->names('admin.diagnosis');
+    Route::resource('diagnosis', DiagnosisController::class)
+        ->parameters(['diagnosis' => 'diagnosis'])
+        ->names('admin.diagnosis');
 
     // Laporan User
     Route::resource('laporan', LaporanController::class)->names('admin.laporan');

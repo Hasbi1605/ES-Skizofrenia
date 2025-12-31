@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Diagnosis;
+use App\Models\Rule;
 use Illuminate\Http\Request;
 
 class DiagnosisController extends Controller
@@ -72,6 +73,14 @@ class DiagnosisController extends Controller
      */
     public function destroy(Diagnosis $diagnosis)
     {
+        // Cek apakah diagnosis memiliki rules (CF Pakar)
+        $rulesCount = Rule::where('diagnosis_id', $diagnosis->id)->count();
+        
+        if ($rulesCount > 0) {
+            return redirect()->route('admin.diagnosis.index')
+                ->with('error', "Diagnosis '{$diagnosis->kode}' tidak dapat dihapus karena memiliki {$rulesCount} rules (CF Pakar) yang terkait. Hapus rules terlebih dahulu.");
+        }
+        
         $diagnosis->delete();
 
         return redirect()->route('admin.diagnosis.index')

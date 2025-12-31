@@ -112,6 +112,47 @@
           </div>
         </div>
 
+        <!-- Referensi Ilmiah Card -->
+        <div class="row justify-content-center mb-4">
+          <div class="col-lg-8">
+            <div class="reference-card p-4 bg-white rounded-3 shadow-sm" style="border-left: 4px solid var(--accent-color);">
+              <h6 class="mb-3" style="color: var(--heading-color);">
+                <i class="bi bi-journal-medical me-2" style="color: var(--accent-color);"></i>
+                Referensi Ilmiah Sistem
+              </h6>
+              <p class="small text-muted mb-2">
+                Nilai <em>Certainty Factor</em> (CF) pada sistem ini ditentukan berdasarkan standar diagnostik berikut:
+              </p>
+              <div class="row g-2">
+                <div class="col-md-6">
+                  <div class="d-flex align-items-center p-2 rounded" style="background: #f8f9fa;">
+                    <i class="bi bi-check-circle-fill text-success me-2"></i>
+                    <small><strong>PPDGJ-III</strong> - Pedoman Diagnosis Gangguan Jiwa Indonesia</small>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="d-flex align-items-center p-2 rounded" style="background: #f8f9fa;">
+                    <i class="bi bi-check-circle-fill text-success me-2"></i>
+                    <small><strong>ICD-10</strong> - WHO Classification (F20.0-F20.2)</small>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="d-flex align-items-center p-2 rounded" style="background: #f8f9fa;">
+                    <i class="bi bi-check-circle-fill text-success me-2"></i>
+                    <small><strong>DSM-5</strong> - American Psychiatric Association</small>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="d-flex align-items-center p-2 rounded" style="background: #f8f9fa;">
+                    <i class="bi bi-check-circle-fill text-success me-2"></i>
+                    <small><strong>PANSS</strong> - Positive and Negative Syndrome Scale</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <!-- Accordions for Details -->
         <div class="row justify-content-center mb-4">
           <div class="col-lg-8">
@@ -164,6 +205,7 @@
                 </div>
               </div>
               
+
               <!-- Calculation Details (Accordion) -->
               <div class="accordion-item border-0 shadow-sm rounded-3 mb-3">
                 <h2 class="accordion-header">
@@ -239,14 +281,15 @@
                     
                     @php
                       // Map diagnosis to partial file based on top diagnosis code
-                      $topDiagnosisCode = array_key_first($hasil) ?? 'P001';
+                      // FIXED: Updated mapping from P001 to P01 format
+                      $topDiagnosisCode = array_key_first($hasil) ?? 'P01';
                       $diagnosisKey = strtolower($topDiagnosisCode);
                       $guideMap = [
-                        'p001' => 'paranoid',
-                        'p002' => 'hebephrenic',
-                        'p003' => 'catatonic',
-                        'p004' => 'residual',
-                        'p005' => 'undifferentiated',
+                        'p01' => 'paranoid',
+                        'p02' => 'hebephrenic',
+                        'p03' => 'catatonic',
+                        'p04' => 'prodromal',     // Updated: was 'residual'
+                        'p05' => 'general',        // Updated: was 'undifferentiated'
                       ];
                       $guidePartial = $guideMap[$diagnosisKey] ?? 'paranoid';
                     @endphp

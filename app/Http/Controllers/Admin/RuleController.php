@@ -45,22 +45,23 @@ class RuleController extends Controller
         $cfValues = $request->input('cf', []);
 
         foreach ($cfValues as $gejalaId => $cfValue) {
-            if ($cfValue !== null && $cfValue !== '') {
-                // Update or create rule
+            // Hapus rule jika nilai kosong, null, atau 0
+            if ($cfValue === null || $cfValue === '' || floatval($cfValue) == 0) {
+                // Remove rule if CF is empty or 0
+                Rule::where('gejala_id', $gejalaId)
+                    ->where('diagnosis_id', $diagnosis->id)
+                    ->delete();
+            } else {
+                // Update or create rule dengan nilai CF > 0
                 Rule::updateOrCreate(
                     [
                         'gejala_id' => $gejalaId,
                         'diagnosis_id' => $diagnosis->id,
                     ],
                     [
-                        'cf_pakar' => $cfValue,
+                        'cf_pakar' => floatval($cfValue),
                     ]
                 );
-            } else {
-                // Remove rule if CF is empty
-                Rule::where('gejala_id', $gejalaId)
-                    ->where('diagnosis_id', $diagnosis->id)
-                    ->delete();
             }
         }
 
