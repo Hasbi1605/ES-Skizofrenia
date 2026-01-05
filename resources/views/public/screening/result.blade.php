@@ -174,7 +174,7 @@
                         $diagnosisData = $item['diagnosis'];
                         $cfPercent = $item['cf_percentage'];
                         $barColor = $cfPercent >= 60 ? '#dc3545' : ($cfPercent >= 40 ? '#ffc107' : ($cfPercent >= 20 ? '#17a2b8' : '#6c757d'));
-                        $isTop = ($kode === array_key_first($hasil));
+                        $isTop = ($kode === array_key_first($hasilFiltered));
                       @endphp
                       <div class="diagnosis-item mb-3 p-3 rounded {{ $isTop ? 'border border-2' : '' }}" 
                            style="background: {{ $isTop ? '#e7f5f5' : '#f8f9fa' }}; {{ $isTop ? 'border-color: var(--accent-color) !important;' : '' }}">
@@ -282,7 +282,7 @@
                     @php
                       // Map diagnosis to partial file based on top diagnosis code
                       // FIXED: Updated mapping from P001 to P01 format
-                      $topDiagnosisCode = array_key_first($hasil) ?? 'P01';
+                      $topDiagnosisCode = array_key_first($hasilFiltered) ?? 'P01';
                       $diagnosisKey = strtolower($topDiagnosisCode);
                       $guideMap = [
                         'p01' => 'paranoid',

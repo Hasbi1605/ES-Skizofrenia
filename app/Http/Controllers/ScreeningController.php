@@ -35,7 +35,7 @@ class ScreeningController extends Controller
     ];
 
     /**
-     * Show the screening introduction page
+     * Tampilkan halaman pengantar screening
      */
     public function index()
     {
@@ -43,7 +43,7 @@ class ScreeningController extends Controller
     }
 
     /**
-     * Start screening - save user data to session
+     * Mulai screening - simpan data pengguna ke session
      */
     public function start(Request $request)
     {
@@ -71,11 +71,11 @@ class ScreeningController extends Controller
     }
 
     /**
-     * Show confirmation page before starting questions
+     * Tampilkan halaman konfirmasi sebelum memulai pertanyaan
      */
     public function confirm()
     {
-        // Check if user data exists
+        // Periksa apakah data pengguna ada
         if (!session()->has('screening_user')) {
             return redirect()->route('screening')->with('error', 'Silakan isi data diri terlebih dahulu');
         }
@@ -84,16 +84,16 @@ class ScreeningController extends Controller
     }
 
     /**
-     * Show questions for a specific step
+     * Tampilkan pertanyaan untuk langkah tertentu
      */
     public function questions($step)
     {
-        // Validate step
+        // Validasi langkah
         if (!isset($this->steps[$step])) {
             return redirect()->route('screening.questions', ['step' => 1]);
         }
 
-        // Check if user data exists
+        // Periksa apakah data pengguna ada
         if (!session()->has('screening_user')) {
             return redirect()->route('screening')->with('error', 'Silakan isi data diri terlebih dahulu');
         }
@@ -105,32 +105,32 @@ class ScreeningController extends Controller
         $currentAnswers = session('screening_answers', []);
 
         return view('public.screening.questions', compact(
-            'step', 
-            'kategori', 
-            'gejalas', 
-            'totalSteps', 
+            'step',
+            'kategori',
+            'gejalas',
+            'totalSteps',
             'currentAnswers'
         ));
     }
 
     /**
-     * Store answers for a step
+     * Simpan jawaban untuk satu langkah
      */
     public function storeAnswers(Request $request)
     {
         $step = $request->input('step');
         $answers = $request->input('answers', []);
 
-        // Merge with existing answers
+        // Gabungkan dengan jawaban yang ada
         $currentAnswers = session('screening_answers', []);
         $currentAnswers = array_merge($currentAnswers, $answers);
         session(['screening_answers' => $currentAnswers]);
 
-        // Determine next step
+        // Tentukan langkah berikutnya
         $nextStep = $step + 1;
 
         if ($nextStep > count($this->steps)) {
-            // All steps complete, calculate result
+            // Semua langkah selesai, hitung hasil
             return redirect()->route('screening.calculate');
         }
 
@@ -138,7 +138,7 @@ class ScreeningController extends Controller
     }
 
     /**
-     * Calculate diagnosis using CF + Forward Chaining
+     * Hitung diagnosis menggunakan CF + Forward Chaining
      */
     public function calculate()
     {
@@ -149,7 +149,7 @@ class ScreeningController extends Controller
             return redirect()->route('screening')->with('error', 'Data tidak lengkap');
         }
 
-        // Get all diagnoses
+        // Ambil semua diagnosis
         $diagnoses = Diagnosis::all();
         $results = [];
 
@@ -158,26 +158,26 @@ class ScreeningController extends Controller
             $detailCalculations = [];
             $isFirstRule = true;
 
-            // Get rules for this diagnosis
+            // Ambil aturan untuk diagnosis ini
             $rules = Rule::where('diagnosis_id', $diagnosis->id)
                 ->with('gejala')
                 ->get();
 
             foreach ($rules as $rule) {
                 $gejalaKode = $rule->gejala->kode;
-                
-                // Check if user answered this gejala
+
+                // Periksa apakah pengguna menjawab gejala ini
                 if (isset($answers[$gejalaKode])) {
                     $cfUser = $this->cfUserValues[$answers[$gejalaKode]] ?? 0;
-                    
-                    // Forward Chaining: Only process if CF User > 0
+
+                    // Forward Chaining: Hanya proses jika CF User > 0
                     if ($cfUser > 0) {
                         $cfPakar = $rule->cf_pakar;
-                        
+
                         // CF Kombinasi = CF Pakar × CF User
                         $cfKombi = $cfPakar * $cfUser;
 
-                        // Store detail for explanation
+                        // Simpan detail untuk penjelasan
                         $detailCalculations[] = [
                             'gejala_kode' => $gejalaKode,
                             'gejala_nama' => $rule->gejala->nama,
@@ -187,7 +187,7 @@ class ScreeningController extends Controller
                             'jawaban' => $answers[$gejalaKode],
                         ];
 
-                        // Combine CF values using: CF_gabung = CF_old + CF_new × (1 - CF_old)
+                        // Gabungkan nilai CF menggunakan: CF_gabung = CF_old + CF_new × (1 - CF_old)
                         if ($isFirstRule) {
                             $cfCombined = $cfKombi;
                             $isFirstRule = false;
@@ -206,17 +206,17 @@ class ScreeningController extends Controller
             ];
         }
 
-        // Sort by CF value descending
+        // Urutkan berdasarkan nilai CF menurun
         uasort($results, function ($a, $b) {
             return $b['cf_final'] <=> $a['cf_final'];
         });
 
-        // Get top diagnosis
+        // Ambil diagnosis teratas
         $topResult = reset($results);
         $diagnosisUtama = $topResult['diagnosis']->nama ?? 'Tidak Terdeteksi';
         $cfTertinggi = $topResult['cf_final'] ?? 0;
 
-        // Save to database
+        // Simpan ke database
         $hasilDiagnosis = HasilDiagnosis::create([
             'nama_pasien' => $userData['nama'],
             'umur' => $userData['umur'],
@@ -229,24 +229,24 @@ class ScreeningController extends Controller
             'cf_tertinggi' => $cfTertinggi,
         ]);
 
-        // Clear session
+        // Hapus session
         session()->forget(['screening_user', 'screening_answers']);
 
         return redirect()->route('screening.result', ['id' => $hasilDiagnosis->id]);
     }
 
     /**
-     * Show result page
+     * Tampilkan halaman hasil
      */
     public function result($id)
     {
         $hasilDiagnosis = HasilDiagnosis::findOrFail($id);
-        
+
         return view('public.screening.result', compact('hasilDiagnosis'));
     }
 
     /**
-     * Get interpretation based on CF value
+     * Dapatkan interpretasi berdasarkan nilai CF
      */
     public static function getInterpretation($cfValue)
     {
